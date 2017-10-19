@@ -21,8 +21,6 @@ sudo docker run hello-world
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
-# may need to reboot for the following to work
-# docker run -it --rm microsoft/dotnet:2.0.0-preview2-sdk-stretch
 
 sudo apt-get install -y synaptic apt-xapian-index gdebi gksu
 sudo apt-get install -y ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation
@@ -42,9 +40,11 @@ mkdir ~/mnt/zubestation
 sudo apt-get install -y libavcodec-extra
 
 sudo apt-get install -y curl libunwind8 gettext
-curl -sSL -o dotnet.tar.gz https://aka.ms/dotnet-sdk-2.0.0-preview2-linux-x64-bin
-sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet 
-sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
 
 mkdir ~/dotnet_temp
 cd ~/dotnet_temp
