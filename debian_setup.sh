@@ -26,6 +26,8 @@ sudo apt-get install -y synaptic apt-xapian-index gdebi gksu
 sudo apt-get install -y ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation
 sudo apt-get install -y libreoffice-writer vlc unrar rar handbrake handbrake-gtk gstreamer0.10-plugins* h264enc easytag lame libdvdread4 libdvdcss* soundconverter cuetools shntool
 
+sudo apt-get install -y fonts-firacode
+
 sudo apt-get install -y ufw
 sudo ufw default deny
 sudo ufw enable
