@@ -1,29 +1,8 @@
 @echo off
 
-REM Configure P4Merge
-REM --------------------------------------------
-git config --global mergetool.p4merge.path "C:\\Program Files\\Perforce\\p4merge.exe"
-git config --global mergetool.p4merge.trustExitCode false
-git config --global mergetool.p4merge.keepBackup false
-
-REM Configure vs 2015 merge
-REM --------------------------------------------
-git config --global mergetool.vs14.cmd "\"c:\\program files (x86)\\Microsoft Visual Studio 14.0\\Common7\\IDE\\vsdiffmerge.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\" //m"
-git config --global mergetool.vs14.keepbackup false
-git config --global mergetool.vs14.trustexitcode true
-
-REM Configure vs 2015 diff
-REM --------------------------------------------
-git config --global difftool.vsdiff14.cmd "\"c:\\program files (x86)\\Microsoft Visual Studio 14.0\\Common7\\IDE\\vsdiffmerge.exe\" \"$LOCAL\" \"$REMOTE\""
-git config --global difftool.vsdiff14.trustexitcode true
-
 REM Configure vs code for editor
 REM --------------------------------------------
 git config --global core.editor "code --wait"
-
-REM Configure ODD diff
-REM --------------------------------------------
-git config --global difftool.odd.cmd "odd.exe $LOCAL $REMOTE"
 
 REM Configure General diff/merge options
 REM --------------------------------------------
@@ -31,11 +10,11 @@ git config --global difftool.prompt false
 git config --global mergetool.prompt false
 
 REM Configure VS Code for git diff
-git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
+rem git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
 
 REM Configure diff and merge tools to use
 REM --------------------------------------------
-git config --global merge.tool vs14
+git config --global merge.tool code
 git config --global diff.tool code
 
 REM Configure checkin / merge / rebase settings

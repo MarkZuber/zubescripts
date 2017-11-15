@@ -2,7 +2,7 @@
 
 git config --global difftool.prompt false
 git config --global mergetool.prompt false
-
+ 
 git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
 git config --global diff.tool code
 
