@@ -16,6 +16,12 @@ sudo usermod -aG docker ${USER}
 
 # note that to use docker without sudo, user will need to logout and back in
 
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt-get update
+sudo apt-get install -y code # or code-insiders
+
 sudo apt-get install -y synaptic apt-xapian-index gdebi gksu
 sudo apt-get install -y ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation
 sudo apt-get install -y libreoffice-writer vlc unrar rar handbrake handbrake-gtk gstreamer0.10-plugins* h264enc easytag lame libdvdread4 libdvdcss* soundconverter cuetools shntool
@@ -61,3 +67,6 @@ git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --d
 # export LS_COLORS
 # GIT_PROMPT_ONLY_IN_REPO=1
 # source ~/.bash-git-prompt/gitprompt.sh
+
+git config --global user.email "mark@zube.com"
+git config --global user.name "Mark Zuber"
