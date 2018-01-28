@@ -53,7 +53,7 @@ echo "source <(kubectl completion bash)" >> ~/.bashrc
 
 sudo apt install snapd
 sudo snap install lxd
-sudo snap install conjure-up --classic
+# sudo snap install conjure-up --classic
 # sudo lxd init --auto
 # /snap/bin/lxc network create lxdbr0 ipv4.address=auto ipv4.nat=true ipv6.address=none ipv6.nat=false
 # conjure-up kubernetes
