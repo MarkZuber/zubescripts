@@ -70,3 +70,4 @@ git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --d
 
 git config --global user.email "mark@zube.com"
 git config --global user.name "Mark Zuber"
+git config --global credential.helper store
