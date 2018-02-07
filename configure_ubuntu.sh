@@ -71,3 +71,15 @@ git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --d
 git config --global user.email "mark@zube.com"
 git config --global user.name "Mark Zuber"
 git config --global credential.helper store
+
+# fix the ORANGE and PURPLE in the login screen
+sudo cp ./gdm3.css /etc/alternatives/gdm3.css
+
+sudo apt install plymouth-themes
+# there is a step or two missing in here to get the 
+# theme itself set.  need to update this
+# https://askubuntu.com/questions/994366/updating-splash-screen-ubuntu-17-10
+# sudo update-alternatives --config default.plymouth
+# sudo update-initramfs -u 
+# sudo reboot
+
