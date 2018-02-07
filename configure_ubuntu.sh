@@ -47,6 +47,12 @@ sudo apt-get install -y golang
 sudo apt-get install -y ssh openssh-server
 sudo apt-get install -y qbittorrent terminator
 
+sudo apt-get install -y python-pip
+sudo apt-get install -y python-autopep8
+sudo apt-get install -y python3-pip
+python3 -m pip install pylint
+pip install --upgrade pylint
+
 sudo snap install kubectl --classic
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 
@@ -83,3 +89,7 @@ sudo apt install plymouth-themes
 # sudo update-initramfs -u 
 # sudo reboot
 
+# sudo cp -R ./plymouth/cmc_spin /usr/share/plymouth/themes/
+# sudo ln -sf /usr/share/plymouth/themes/cmc_spin/cmc.plymouth /etc/alternatives/default.plymouth
+# sudo update-initramfs -u -k all
+# sudo reboot
