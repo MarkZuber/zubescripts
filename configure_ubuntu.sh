@@ -33,15 +33,11 @@ sudo apt-get install -y libavcodec-extra
 sudo apt-get install -y curl libunwind8 gettext
 
 # dotnet core
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
-sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
-wget -q https://packages.microsoft.com/config/ubuntu/18.04/prod.list 
-sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
-sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
-sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
-sudo apt-get install apt-transport-https
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get install -y apt-transport-https
 sudo apt-get update
-sudo apt-get install dotnet-sdk-2.1
+sudo apt-get install -y dotnet-sdk-2.1
 
 # nodejs/npm/yo
 sudo apt-get install -y nodejs
@@ -58,15 +54,15 @@ sudo apt-get install -y python3-pip
 python3 -m pip install pylint
 pip install --upgrade pylint
 
-sudo snap install kubectl --classic
-echo "source <(kubectl completion bash)" >> ~/.bashrc
+#sudo snap install kubectl --classic
+#echo "source <(kubectl completion bash)" >> ~/.bashrc
 
-sudo apt install snapd
-sudo snap install lxd
-sudo usermod -a -G lxd $USER
-newgrp lxd
-/snap/bin/lxd init
-sudo snap install conjure-up --classic
+#sudo apt install snapd
+#sudo snap install lxd
+#sudo usermod -a -G lxd $USER
+#newgrp lxd
+#/snap/bin/lxd init
+#sudo snap install conjure-up --classic
 /snap/bin/lxc network create lxdbr0 ipv4.address=auto ipv4.nat=true ipv6.address=none ipv6.nat=false
 # conjure-up kubernetes
 
@@ -85,7 +81,7 @@ git config --global user.name "Mark Zuber"
 git config --global credential.helper store
 
 # fix the ORANGE and PURPLE in the login screen
-sudo cp ./gdm3.css /etc/alternatives/gdm3.css
+#sudo cp ./gdm3.css /etc/alternatives/gdm3.css
 
 curl https://sh.rustup.rs -sSf | sh
 
