@@ -22,6 +22,18 @@ sudo apt-get install -y apt-transport-https
 sudo apt-get update
 sudo apt-get install -y dotnet-sdk-2.1
 
+cp .zshrc ~/.zshrc
+cp .zsh_aliases ~/.zsh_aliases
+
+cd ~
+curl -L git.io/antigen > antigen.zsh
+mkdir ~/.antigen
+mv antigen.zsh ~/.antigen/
+sudo apt install -y zsh thefuck
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+
+
 sudo apt-get install -y nodejs
 sudu apt-get install -y npm
 sudo npm install -g yo
@@ -42,6 +54,12 @@ echo "LS_COLORS='ow=01;36;40'" >> ~/.bashrc
 echo "export LS_COLORS" >> ~/.bashrc
 echo "GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bashrc
 echo "source ~/.bash-git-prompt/gitprompt.sh" >> ~/.bashrc
+
+echo "export DISPLAY=:0" >> ~/.bashrc
+echo "if [ -t 1 ]; then" >> ~/.bashrc
+echo "exec zsh" >> ~/.bashrc
+echo "fi" >> ~/.bashrc
+
 
 git config --global user.email "mark@zube.com"
 git config --global user.name "Mark Zuber"
