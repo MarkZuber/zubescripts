@@ -19,7 +19,7 @@ git config --global diff.tool code
 
 REM Configure checkin / merge / rebase settings
 git config --global rebase.autostash true
-git config --global core.autocrlf true
+git config --global core.autocrlf false
 
 REM Aliases...
 git config --global alias.cemail "config --get user.email"
